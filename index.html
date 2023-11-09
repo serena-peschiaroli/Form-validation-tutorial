@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <h1>Form validation con Javascript </h1>
+  <h1>Form validation</h1>
 
   <div class="tutorial-section">
     <h2>Cos'è una form validation?</h2>
@@ -23,13 +23,13 @@
 
   <div class="tutorial-section">
     <h2>Struttura base di un form</h2>
-    <p>La validazione del modulo HTML può essere eseguita utilizzando le funzioni built-in del linguaggio HTML, come l'attributo required o gli attributi di input come pattern, e anche utilizzando JavaScript per la validazione più avanzata. Ecco una spiegazione completa seguendo la documentazione ufficiale:</p>
+    <p>La validazione del modulo HTML può essere eseguita utilizzando le funzioni built-in del linguaggio HTML, come l'attributo required o gli attributi di input come pattern, e anche utilizzando JavaScript per la validazione più avanzata.</p>
 
     <div class="code-example">
-      <pre>
+      <pre class="highlight">
         <code>
             <p>
-                 < form id="myForm">
+                < form id="myForm">
                 < label for="nameInput">Name:< /label>
                 < input type="text" id="nameInput" name="name" required>
                 < span id="nameError" class="error">< /span>
@@ -47,26 +47,213 @@
 
   </div>
   <div class="tutorial-section">
-    <h2>Attributo pattern </h2>
-    <p>CL'attributo pattern consente di specificare una regex per la validazione del campo di input.
-        In questo esempio, il campo "password" richiede almeno 8 caratteri.
+        <h2>Attributo pattern </h2>
+        <p>L'attributo pattern in HTML può essere utilizzato per specificare una regex (espressione regolare) che definisce i criteri di validazione per un campo di input. 
+            Questo attributo è utile per garantire che l'utente inserisca dati nel formato desiderato. 
+            Qui un esempio di come utilizzare pattern per validare un campo password con almeno 8 caratteri:
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+                        <   form>
+                            < label for="password">Password (almeno 8 caratteri):</ label>
+                            < input type="password" id="password" name="password" pattern=".{8,}" title="La password deve contenere almeno 8 caratteri">
+                        
+                            < input type="submit" value="Submit">
+                    < /form>
+                        
+                        
+                    </code>
+            </pre>
+       </div>
+
+  
+    </div>
+  </div>
+  <div class="tutorial-section">
+    <p> pattern=".{8,}" specifica che il campo password deve contenere almeno 8 caratteri.
+
+        title="La password deve contenere almeno 8 caratteri" fornisce un messaggio di suggerimento quando l'utente passa il mouse sopra il campo.
     </p>
 
+    <p>In CSS, puoi anche applicare stili ai campi di input in base al loro stato di validità utilizzando il selettore :valid e :invalid. Ad esempio:</p>
     <div class="code-example">
-      <pre>
-        <code>
-            <   form>
-                < label for="password">Password (almeno 8 caratteri):</ label>
-                < input type="password" id="password" name="password" pattern=".{8,}" title="La password deve contenere almeno 8 caratteri">
-              
-                < input type="submit" value="Submit">
-           < /form>
-              
+            <pre class="highlight">
             
-        </code>
-      </pre>
+                <code>
+                    input:valid {
+                        border: 2px solid green; /* Bordo verde per i campi validi */
+                    }
+                    
+                    input:invalid {
+                        border: 2px solid red; /* Bordo rosso per i campi non validi */
+                    }
+                    
+                    
+                    
+                </code>
+            </pre>   
     </div>
+   
   </div>
+  <div class="tutorial-section">
+        <p> pattern=".{8,}" specifica che il campo password deve contenere almeno 8 caratteri.
+
+            title="La password deve contenere almeno 8 caratteri" fornisce un messaggio di suggerimento quando l'utente passa il mouse sopra il campo.
+        </p>
+
+        <p>In CSS, puoi anche applicare stili ai campi di input in base al loro stato di validità utilizzando il selettore :valid e :invalid. Ad esempio:</p>
+        <div class="code-example">
+            <pre class="highlight">
+            
+                <code>
+                    input:valid {
+                        border: 2px solid green; /* Bordo verde per i campi validi */
+                    }
+                    
+                    input:invalid {
+                        border: 2px solid red; /* Bordo rosso per i campi non validi */
+                    }
+                    
+                    
+                    
+                </code>
+            </pre>   
+        </div>  
+  </div>
+  <div class="tutorial-section">
+        <h2>maxlength e minlength </h2>
+        <p>Questi attributi definiscono la lunghezza massima e minima di un campo di testo.
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+
+
+                        < input type="text" name="description" maxlength="100" minlength="10">
+
+                        
+                        
+                    </code>
+            </pre>
+        </div>
+
+
+    </div>
+    <div class="tutorial-section">
+        <h2>type="email" e type="url":</h2>
+        <p>Questi attributi specificano il tipo di input previsto (indirizzo email o URL) e forniscono una validazione di base.
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+
+                        
+                        < input type="email" name="userEmail">
+                        < input type="url" name="website">
+                        
+
+                        
+                        
+                    </code>
+            </pre>
+        </div>
+
+
+    </div>
+    <div class="tutorial-section">
+        <h2>type="email" e type="url":</h2>
+        <p>Questi attributi specificano il tipo di input previsto (indirizzo email o URL) e forniscono una validazione di base.
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+
+                        
+                        < input type="email" name="userEmail">
+                        < input type="url" name="website">
+                        
+
+                        
+                        
+                    </code>
+            </pre>
+        </div>
+
+
+    </div>
+    <div class="tutorial-section">
+        <h2>step::</h2>
+        <p>L'attributo step definisce gli intervalli validi per i valori di input numerici.e di base.
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+
+                        
+                        < input type="number" name="quantity" step="5">
+
+                        
+
+                        
+                        
+                    </code>
+            </pre>
+        </div>
+
+
+    </div>
+    <div class="tutorial-section">
+        <h2>title:</h2>
+        <p>L'attributo title fornisce un messaggio di suggerimento quando l'utente passa il mouse sopra il campo.
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+
+                        
+                        < input type="text" name="username" title="Inserisci il tuo nome utente">
+
+
+                        
+
+                        
+                        
+                    </code>
+            </pre>
+        </div>
+
+
+    </div>
+    <div class="tutorial-section">
+        <h2>autocomplete:</h2>
+        <p>L'attributo autocomplete può essere utilizzato per abilitare o disabilitare il completamento automatico dei campi di input.
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
+
+                        
+                        < input type="text" name="address" autocomplete="on">
+
+                        
+
+                        
+                        
+                    </code>
+            </pre>
+        </div>
+
+
+    </div>
+  
 
 
   <div class="tutorial-section">
@@ -74,7 +261,7 @@
     <p>paragrafo</p>
 
     <div class="code-example">
-      <pre>
+      <pre class="highlight">
         <code>
             document.getElementById('registrazioneForm').addEventListener('submit', function(event) {
                 let valido = true;
@@ -94,27 +281,27 @@
   </div>
 
   <div class="tutorial-section">
-    <h2>Validation con Javascript</h2>
-    <p>paragrafo</p>
+        <h2>Validation con Javascript</h2>
+        <p>paragrafo</p>
 
-    <div class="code-example">
-      <pre>
-        <code>
-            document.getElementById('registrazioneForm').addEventListener('submit', function(event) {
-                let valido = true;
-              
-                // Validazione per ogni campo di input
-                // ...
-              
-                // Impedisci l'invio del form se la validazione fallisce
-                if (!valido) {
-                  event.preventDefault();
-                }
-              });
-            
-        </code>
-      </pre>
-    </div>
+        <div class="code-example">
+            <pre class="highlight">
+                <code>
+                    document.getElementById('registrazioneForm').addEventListener('submit', function(event) {
+                        let valido = true;
+                    
+                        // Validazione per ogni campo di input
+                        // ...
+                    
+                        // Impedisci l'invio del form se la validazione fallisce
+                        if (!valido) {
+                        event.preventDefault();
+                        }
+                    });
+                    
+                </code>
+            </pre>
+        </div>
   </div>
 
   <div class="tutorial-section">
@@ -223,7 +410,6 @@
             } else {
               nomeErrore.textContent = '';
             }
-            
             
         </code>
       </pre>
