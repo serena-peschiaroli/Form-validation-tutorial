@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Form validation con Javascript </h1>
+
+  <div class="tutorial-section">
+    <h2>Cos'è una form validation?</h2>
+    <p>Form validation è un processo attivo di controllo per assicurarsi che l'input dell'utente in una web form rispecchi specifici criteri prima dell'invio</p>
+    <h3>Perché è importante?</h3>
+    <ul>
+        <li>Migliora l'esperienza dell'utente provvedendo feedback immediato;</li>
+        <li>Assicura l'accuratezza ed integrità dei dati;</li>
+        <li>Previene l'invio al server di dati incorretti io dannosi</li>
+    </ul>
+  </div>
+
+  <div class="tutorial-section">
+    <h2>Struttura base di un form</h2>
+    <p>La validazione del modulo HTML può essere eseguita utilizzando le funzioni built-in del linguaggio HTML, come l'attributo required o gli attributi di input come pattern, e anche utilizzando JavaScript per la validazione più avanzata. Ecco una spiegazione completa seguendo la documentazione ufficiale:</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            <p>
+                 < form id="myForm">
+                < label for="nameInput">Name:< /label>
+                < input type="text" id="nameInput" name="name" required>
+                < span id="nameError" class="error">< /span>
+              
+                // altri campi di input //
+              
+                < button type="submit">Submit< /button>
+              </ form >
+            </p>
+            
+        </code>
+      </pre>
+    </div>
+     <p>In questo esempio, i campi "username" e "email" sono obbligatori</p>
+
+  </div>
+  <div class="tutorial-section">
+    <h2>Attributo pattern </h2>
+    <p>CL'attributo pattern consente di specificare una regex per la validazione del campo di input.
+        In questo esempio, il campo "password" richiede almeno 8 caratteri.
+    </p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            <   form>
+                < label for="password">Password (almeno 8 caratteri):</ label>
+                < input type="password" id="password" name="password" pattern=".{8,}" title="La password deve contenere almeno 8 caratteri">
+              
+                < input type="submit" value="Submit">
+           < /form>
+              
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+
+
+  <div class="tutorial-section">
+    <h2>Validation con Javascript</h2>
+    <p>paragrafo</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            document.getElementById('registrazioneForm').addEventListener('submit', function(event) {
+                let valido = true;
+              
+                // Validazione per ogni campo di input
+                // ...
+              
+                // Impedisci l'invio del form se la validazione fallisce
+                if (!valido) {
+                  event.preventDefault();
+                }
+              });
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="tutorial-section">
+    <h2>Validation con Javascript</h2>
+    <p>paragrafo</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            document.getElementById('registrazioneForm').addEventListener('submit', function(event) {
+                let valido = true;
+              
+                // Validazione per ogni campo di input
+                // ...
+              
+                // Impedisci l'invio del form se la validazione fallisce
+                if (!valido) {
+                  event.preventDefault();
+                }
+              });
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="tutorial-section">
+    <h2>Funzioni di Validazione Personalizzate</h2>
+    <p>paragrafo</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            function isValidEmail(email) {
+                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regexEmail.test(email);
+              }
+              
+              // Aggiungi ulteriori funzioni di validazione se necessario
+              
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="tutorial-section">
+    <h2>Visualizzazione dei Messaggi di Errore</h2>
+    <p>paragrafo</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            // Esempio: Visualizzazione di un messaggio di errore per il campo del nome
+            const nomeErrore = document.getElementById('nomeErrore');
+            if (nomeInput.value === '') {
+              nomeErrore.textContent = 'Il nome è obbligatorio';
+              valido = false;
+            } else {
+              nomeErrore.textContent = '';
+            }
+            
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+
+  <div class="tutorial-section">
+    <h2>Utilizzo di checkValidity</h2>
+    <p>JavaScript può essere utilizzato per la validazione più avanzata. Ad esempio, la funzione checkValidity controlla se un elemento soddisfa tutti i vincoli di validità.</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+                const customField = document.getElementById('customField');
+            
+                if (!customField.checkValidity()) {
+                  // Se la validazione fallisce, gestisci l'errore qui
+                  alert("Il campo personalizzato deve iniziare con 'A'");
+                  event.preventDefault(); // Impedisci l'invio del modulo
+                }
+              });
+        </code>
+      </pre>
+    </div>
+  </div>
+  <p>In questo esempio, la validità del campo personalizzato viene controllata utilizzando JavaScript.  </p>
+
+  <div class="tutorial-section">
+    <h2>Utilizzo di Constraint API</h2>
+    <p>La Constraint API è un insieme di API JavaScript per l'accesso e la modifica dei vincoli di validazione di un elemento.</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            const ageInput = document.getElementById('age');
+            const ageError = document.getElementById('ageError');
+
+            ageInput.addEventListener('input', function() {
+                if (ageInput.validity.rangeUnderflow) {
+               ageError.textContent = 'L\'età deve essere maggiore di 18';
+                } else {
+                ageError.textContent = '';
+                }
+             });
+            
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+    <p>In questo esempio, la Constraint API è utilizzata per controllare se l'età è maggiore di 18.
+
+        Questi sono solo esempi di base. La validazione del modulo può essere personalizzata ulteriormente in base alle esigenze specifiche del progetto da realizzare. </p>
+
+  <div class="tutorial-section">
+    <h2>Visualizzazione dei Messaggi di Errore</h2>
+    <p>paragrafo</p>
+
+    <div class="code-example">
+      <pre>
+        <code>
+            // Esempio: Visualizzazione di un messaggio di errore per il campo del nome
+            const nomeErrore = document.getElementById('nomeErrore');
+            if (nomeInput.value === '') {
+              nomeErrore.textContent = 'Il nome è obbligatorio';
+              valido = false;
+            } else {
+              nomeErrore.textContent = '';
+            }
+            
+            
+        </code>
+      </pre>
+    </div>
+  </div>
+
+
+  
+
+</body>
+</html>
