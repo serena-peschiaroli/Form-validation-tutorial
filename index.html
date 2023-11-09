@@ -17,7 +17,7 @@
     <ul>
         <li>Migliora l'esperienza dell'utente provvedendo feedback immediato;</li>
         <li>Assicura l'accuratezza ed integrità dei dati;</li>
-        <li>Previene l'invio al server di dati incorretti io dannosi</li>
+        <li>Previene l'invio al server di dati incorretti o dannosi</li>
     </ul>
   </div>
 
@@ -75,7 +75,7 @@
         title="La password deve contenere almeno 8 caratteri" fornisce un messaggio di suggerimento quando l'utente passa il mouse sopra il campo.
     </p>
 
-    <p>In CSS, puoi anche applicare stili ai campi di input in base al loro stato di validità utilizzando il selettore :valid e :invalid. Ad esempio:</p>
+    <p>In CSS, si possono  applicare stili ai campi di input in base al loro stato di validità utilizzando il selettore :valid e :invalid. Ad esempio:</p>
     <div class="code-example">
             <pre class="highlight">
             
@@ -87,8 +87,6 @@
                     input:invalid {
                         border: 2px solid red; /* Bordo rosso per i campi non validi */
                     }
-                    
-                    
                     
                 </code>
             </pre>   
@@ -131,7 +129,7 @@
         </div>
     </div>
     <div class="tutorial-section">
-        <h2>step::</h2>
+        <h2>Step:</h2>
         <p>L'attributo step definisce gli intervalli validi per i valori di input numerici e di base.
         </p>
         <div class="code-example">
@@ -201,7 +199,7 @@
             </li>
             <li>
                 tooLong: 
-                Restituisce truese il valore è più lungo della lunghezza massima specificata dall'attributo maxlengtho falsese è più corto o uguale al massimo.// tooShort:
+                Restituisce true se il valore è più lungo della lunghezza massima specificata dall'attributo maxlengtho falsese è più corto o uguale al massimo.// tooShort:
             </li>
             <li>
                 rangeOverflow: // rangeUnderflow:
@@ -366,7 +364,7 @@
                         return regexData.test(data);
                     }
 
-                    // Aggiungi eventi di ascolto e chiamate alle funzioni di validazione
+                    // Aggiungi eventListener e chiamate alle funzioni di validazione
                     telefonoInput.addEventListener('blur', function () {
                         if (!isValidTelefono(telefonoInput.value)) {
                             // Mostra messaggio di errore per il numero di telefono non valido
@@ -430,7 +428,7 @@
   <div class="tutorial-section">
     <h2>Utilizzo di checkValidity</h2>
         <p>
-            JavaScript può essere utilizzato per la validazione più avanzata. Ad esempio, la funzione checkValidity controlla se     un elemento soddisfa tutti i vincoli di validità.
+            JavaScript può essere utilizzato per la validazione più avanzata. Ad esempio, la funzione checkValidity controlla se    un elemento soddisfa tutti i vincoli di validità.
             checkValidity() è un metodo della Constraint Validation API in JavaScript che può essere utilizzato per verificare se un elemento del form soddisfa tutti i vincoli di validità imposti su di esso. Questi vincoli possono includere attributi HTML come required, pattern, min, max, ecc.
 
 
@@ -453,9 +451,9 @@
     </div>
   </div>
   <p>
-        In questo esempio, stiamo ascoltando l'evento di invio del form. Quando il form viene inviato, controlliamo la validità del campo personalizzato utilizzando checkValidity(). Se la validazione fallisce, mostriamo un messaggio di avviso e impediamo l'invio del modulo con event.preventDefault().
+        In questo esempio, quando il form viene inviato, controlliamo la validità del campo personalizzato utilizzando checkValidity(). Se la validazione fallisce, mostriamo un messaggio di avviso e impediamo l'invio del modulo con event.preventDefault().
 
-        Questo metodo è utile quando desideri eseguire una validazione più avanzata rispetto agli attributi HTML standard o quando vuoi personalizzare il comportamento della validazione in base alle tue esigenze specifiche.  
+        Questo metodo è utile quando si desidera eseguire una validazione più avanzata rispetto agli attributi HTML standard o quando si vuole personalizzare il comportamento della validazione in base alle tue esigenze specifiche.  
     </p>
 
   <div class="tutorial-section">
@@ -518,7 +516,7 @@
                 </li>
                 <li>
                     <h3>Reflected (Non-Persistent) XSS:</h3>
-                    lo script maligno è incorporato in un URL ed il server lo riflette all'utente n ella risposta. Il browser dell'utete esegue quindi lo script: 
+                    lo script maligno è incorporato in un URL ed il server lo riflette all'utente nella risposta. Il browser dell'utente esegue quindi lo script: 
                     <strong> Questo tipo è solutamente il risultato dell'inserimento di script in campi di input o url</strong>
                 </li>
                 <li>
