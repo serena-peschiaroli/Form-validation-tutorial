@@ -253,32 +253,96 @@
 
 
     </div>
-  
+    <div class="tutorial-section">
+        <h2>Convalida dei moduli utilizzando JavaScript</h2>
+        <p>È necessario utilizzare JavaScript per assumere il controllo sull'aspetto dei messaggi di errore nativi come ad esempio "validity".
+        </p>
+        <p>
+            validity: Restituisce un ValidityState oggetto che contiene diverse proprietà che descrivono lo stato di validità dell'elemento.
+            <li>
+                valid: Restituisce true se l'elemento soddisfa tutti i suoi vincoli di validazione, ed è quindi considerato valido, o false se fallisce qualsiasi vincolo
+            </li>
+            <li>
+                tooLong: Restituisce truese il valore è più lungo della lunghezza massima specificata dall'attributo maxlengtho falsese è più corto o uguale al massimo.// tooShort:
+            </li>
+            <li>
+                rangeOverflow: // rangeUnderflow: Restituisce truese il valore è inferiore al minimo specificato dall'attributo mino falsese è maggiore o uguale al minimo.
+            </li>
+            <li>
+                typeMismatch: Restituisce truese il valore non è nella sintassi richiesta (quando type è email o url) o false se la sintassi è corretta.
 
+            </li>
+        </p>
+        <div class="code-example">
+            <pre class="highlight">
+                
+                    <code>
 
-  <div class="tutorial-section">
-    <h2>Validation con Javascript</h2>
-    <p>paragrafo</p>
+                        
+                        esempio:
+                        HTML
+                        < form novalidate> "novalidate" per disattivare la convalida automatica del browser, non disabilita  pseudo-classi CSS come :valid.
+                        < p>
+                            < label for="mail">
+                            < span>Please enter an email address:</ span>
+                            < input type="email" id="mail" name="mail" required minlength="8" />
+                            < span class="error" aria-live="polite"></ span>
+                            </ label>
+                        < /p>
+                        < button>Submit</ button>
+                        </ form>
+                        
+                    </code>
+            </pre>  
+        
+        </div>
+        <p>
+            Un punto chiave qui è che l'impostazione dell'attributo novalidate sul modulo è ciò che impedisce al modulo di mostrare i propri fumetti di errore e ci consente invece di visualizzare i messaggi di errore personalizzati nel DOM in un modo a nostra scelta.
 
-    <div class="code-example">
-      <pre class="highlight">
-        <code>
-            document.getElementById('registrazioneForm').addEventListener('submit', function(event) {
-                let valido = true;
-              
-                // Validazione per ogni campo di input
-                // ...
-              
-                // Impedisci l'invio del form se la validazione fallisce
-                if (!valido) {
-                  event.preventDefault();
-                }
-              });
+        </p>
+        <div class="code-example">
             
-        </code>
-      </pre>
+                <pre class="highlight">
+                    
+                    <code>
+                                                JS
+                        // iniziamo dichiarando le variabili
+                        const form = document.querySelector("form");
+                        const email = document.getElementById("mail");
+                        const emailError = document.querySelector("#mail + span.error");
+                        form.addEventListener("submit", (event) => {
+                        // Controlliamo se l'email soddisfa tutti i requisiti dati in HTML
+                        if (!email.validity.valid) {
+                            // Se non li rispetta richiamiamo la funzione showError
+                            showError();
+                            // Evitiamo che i campi di input si svuotino
+                            event.preventDefault();
+                        }
+                        });
+                        // Controlla che l'imput non sia vuoto, che venga rispettato il type dell'input e la lunghezza minima
+                        function showError() {
+                        if (email.validity.valueMissing) {
+                            // Se il campo è vuoto mostra questo messaggio di errore
+                            emailError.textContent = "You need to enter an email address.";
+                        } else if (email.validity.typeMismatch) {
+                            // Se non viene riconosciuto un indirizzo email
+                            emailError.textContent = "Entered value needs to be an email address.";
+                        } else if (email.validity.tooShort) {
+                            // se l'imput è troppo corto
+                            emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+                        }
+                        // aggiungere feedback visivo con css
+                        emailError.className = "error active";
+                        }
+                        
+                    </code>
+             </pre>
+
+        </div>
+
+
     </div>
-  </div>
+  
 
   <div class="tutorial-section">
         <h2>Validation con Javascript: Validazione basata su condizioni:</h2>
@@ -322,7 +386,8 @@
                 alert('Inserisci un indirizzo email valido');
                 valido = false;
             }
-              
+            //OPPURE
+            
             
         </code>
       </pre>
@@ -330,23 +395,87 @@
   </div>
 
   <div class="tutorial-section">
-    <h2>Constraint API:</h2>
-    <p>Si possono utilizzare la Constraint API, che fornisce un set di metodi e proprietà per accedere e modificare i vincoli di validazione di un elemento. Ad esempio:</p>
+        <h2>Constraint API:</h2>
+        <p>Si possono utilizzare la Constraint API, che fornisce un set di metodi e proprietà per accedere e modificare i vincoli di validazione di un elemento. Ad esempio:</p>
 
-    <div class="code-example">
-      <pre>
-        <code>
-            const ageInput = document.getElementById('age');
+        <div class="code-example">
+        <pre>
+            <code>
+                const ageInput = document.getElementById('age');
 
-            ageInput.addEventListener('input', function() {
-                if (ageInput.validity.rangeUnderflow) {
-                     alert('L\'età deve essere maggiore di 18');
-                    valido = false;
-                }
-            });
+                ageInput.addEventListener('input', function() {
+                    if (ageInput.validity.rangeUnderflow) {
+                        alert('L\'età deve essere maggiore di 18');
+                        valido = false;
+                    }
+                });
 
-        </code>
-      </pre>
+            </code>
+        </pre>
+        </div>
+        <div class="code-example">
+                <pre>
+                    <code>
+                        const regexTelefono = /^\+(?:[0-9]●?){6,14}[0-9]$/;
+
+                        const regexCodicePostaleUSA = /^\d{5}(?:[-\s]\d{4})?$/;
+
+                        const regexData = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+
+                    </code>
+                </pre>
+        </div>
+        <div class="code-example">
+            <pre>
+                <code>
+                    const telefonoInput = document.getElementById('telefono');
+                    const codicePostaleInput = document.getElementById('codicePostale');
+                    const dataInput = document.getElementById('data');
+
+                    // Funzione di validazione per il numero di telefono
+                    function isValidTelefono(telefono) {
+                        const regexTelefono = /^\+(?:[0-9]●?){6,14}[0-9]$/;
+                        return regexTelefono.test(telefono);
+                    }
+
+                    // Funzione di validazione per il codice postale
+                    function isValidCodicePostale(codicePostale) {
+                        const regexCodicePostaleUSA = /^\d{5}(?:[-\s]\d{4})?$/;
+                        return regexCodicePostaleUSA.test(codicePostale);
+                    }
+
+                    // Funzione di validazione per la data
+                    function isValidData(data) {
+                        const regexData = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+                        return regexData.test(data);
+                    }
+
+                    // Aggiungi eventi di ascolto e chiamate alle funzioni di validazione
+                    telefonoInput.addEventListener('blur', function () {
+                        if (!isValidTelefono(telefonoInput.value)) {
+                            // Mostra messaggio di errore per il numero di telefono non valido
+                            // ...
+                        }
+                    });
+
+                    codicePostaleInput.addEventListener('blur', function () {
+                        if (!isValidCodicePostale(codicePostaleInput.value)) {
+                            // Mostra messaggio di errore per il codice postale non valido
+                            // ...
+                        }
+                    });
+
+                    dataInput.addEventListener('blur', function () {
+                        if (!isValidData(dataInput.value)) {
+                            // Mostra messaggio di errore per la data non valida
+                            // ...
+                        }
+                    });
+
+
+        
+                </code>
+            </pre>
     </div>
   </div>
 
@@ -409,7 +538,9 @@
 
   <div class="tutorial-section">
     <h2>Visualizzazione dei Messaggi di Errore</h2>
-    <p>paragrafo</p>
+    <p>
+        a visualizzazione dei messaggi di errore è una componente cruciale nella validazione dei form con JavaScript. Questo processo fornisce feedback istantaneo agli utenti riguardo agli errori nei dati inseriti, migliorando così l'esperienza complessiva. Nel codice JavaScript associato a ciascun campo del form, vengono implementate condizioni che attivano la visualizzazione di messaggi di errore specifici quando si verificano determinati scenari, come campi obbligatori vuoti. Questa pratica non solo aiuta gli utenti a correggere gli errori immediatamente, ma contribuisce anche a mantenere l'integrità e l'accuratezza dei dati nel sistema. La personalizzazione dei messaggi di errore e l'integrazione con altri metodi di validazione consentono di adattare la visualizzazione degli errori alle esigenze specifiche del progetto.
+    </p>
 
     <div class="code-example">
       <pre>
@@ -418,11 +549,14 @@
             let valido = true;
 
             const nomeErrore = document.getElementById('nomeErrore');
-            if (nomeInput.value === '') {
-              nomeErrore.textContent = 'Il nome è obbligatorio';
-              valido = false;
-            } else {
-              nomeErrore.textContent = '';
+            const nomeInput = document.getElementById('nomeInput');
+
+            nomeInput.addEventListener('blur', function() {
+             if (nomeInput.value === '') {
+            nomeErrore.textContent = 'Il nome è obbligatorio';
+            valido = false;
+             } else {
+            nomeErrore.textContent = '';
             }
             
         </code>
