@@ -281,8 +281,8 @@
   </div>
 
   <div class="tutorial-section">
-        <h2>Validation con Javascript</h2>
-        <p>paragrafo</p>
+        <h2>Validation con Javascript: Validazione basata su condizioni:</h2>
+        <p>Si possono utilizzare istruzioni condizionali per verificare se i campi del form soddisfano determinate condizioni. Ad esempio, si può controllare se un campo è vuoto o se un numero è maggiore di una certa quantità.</p>
 
         <div class="code-example">
             <pre class="highlight">
@@ -305,8 +305,8 @@
   </div>
 
   <div class="tutorial-section">
-    <h2>Funzioni di Validazione Personalizzate</h2>
-    <p>paragrafo</p>
+    <h2>Espressioni regolari (Regex):</h2>
+    <p>Si possono utilizzare espressioni regolari per definire modelli specifici che devono essere rispettati. Ad esempio, per la validazione di un'email:</p>
 
     <div class="code-example">
       <pre>
@@ -314,9 +314,14 @@
             function isValidEmail(email) {
                 const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return regexEmail.test(email);
-              }
-              
-              // Aggiungi ulteriori funzioni di validazione se necessario
+            }
+            
+            // Uso
+            const emailInput = document.getElementById('email');
+            if (!isValidEmail(emailInput.value)) {
+                alert('Inserisci un indirizzo email valido');
+                valido = false;
+            }
               
             
         </code>
@@ -325,20 +330,21 @@
   </div>
 
   <div class="tutorial-section">
-    <h2>Visualizzazione dei Messaggi di Errore</h2>
-    <p>paragrafo</p>
+    <h2>Constraint API:</h2>
+    <p>Si possono utilizzare la Constraint API, che fornisce un set di metodi e proprietà per accedere e modificare i vincoli di validazione di un elemento. Ad esempio:</p>
 
     <div class="code-example">
       <pre>
         <code>
-            // Esempio: Visualizzazione di un messaggio di errore per il campo del nome
-            const nomeErrore = document.getElementById('nomeErrore');
-            if (nomeInput.value === '') {
-              nomeErrore.textContent = 'Il nome è obbligatorio';
-              valido = false;
-            } else {
-              nomeErrore.textContent = '';
-            }
+            const ageInput = document.getElementById('age');
+
+            ageInput.addEventListener('input', function() {
+                if (ageInput.validity.rangeUnderflow) {
+                     alert('L\'età deve essere maggiore di 18');
+                    valido = false;
+                }
+            });
+
             
             
         </code>
@@ -348,7 +354,12 @@
 
   <div class="tutorial-section">
     <h2>Utilizzo di checkValidity</h2>
-    <p>JavaScript può essere utilizzato per la validazione più avanzata. Ad esempio, la funzione checkValidity controlla se un elemento soddisfa tutti i vincoli di validità.</p>
+        <p>
+            JavaScript può essere utilizzato per la validazione più avanzata. Ad esempio, la funzione checkValidity controlla se     un elemento soddisfa tutti i vincoli di validità.
+            checkValidity() è un metodo della Constraint Validation API in JavaScript che può essere utilizzato per verificare se un elemento del form soddisfa tutti i vincoli di validità imposti su di esso. Questi vincoli possono includere attributi HTML come required, pattern, min, max, ecc.
+
+
+        </p>
 
     <div class="code-example">
       <pre>
@@ -366,7 +377,11 @@
       </pre>
     </div>
   </div>
-  <p>In questo esempio, la validità del campo personalizzato viene controllata utilizzando JavaScript.  </p>
+  <p>
+        In questo esempio, stiamo ascoltando l'evento di invio del form. Quando il form viene inviato, controlliamo la validità del campo personalizzato utilizzando checkValidity(). Se la validazione fallisce, mostriamo un messaggio di avviso e impediamo l'invio del modulo con event.preventDefault().
+
+        Questo metodo è utile quando desideri eseguire una validazione più avanzata rispetto agli attributi HTML standard o quando vuoi personalizzare il comportamento della validazione in base alle tue esigenze specifiche.  
+    </p>
 
   <div class="tutorial-section">
     <h2>Utilizzo di Constraint API</h2>
