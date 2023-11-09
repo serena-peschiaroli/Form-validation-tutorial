@@ -345,8 +345,6 @@
                 }
             });
 
-            
-            
         </code>
       </pre>
     </div>
@@ -401,7 +399,6 @@
                 }
              });
             
-            
         </code>
       </pre>
     </div>
@@ -418,6 +415,8 @@
       <pre>
         <code>
             // Esempio: Visualizzazione di un messaggio di errore per il campo del nome
+            let valido = true;
+
             const nomeErrore = document.getElementById('nomeErrore');
             if (nomeInput.value === '') {
               nomeErrore.textContent = 'Il nome è obbligatorio';

@@ -9,30 +9,37 @@ body {
 }
 
 .code-example {
-    background-color: gray;
+    background-color: black;
     color: #fff;
     padding: 10px;
     overflow-x: auto;
     width: 50%;
     margin: 0 auto;
     overflow-x: scroll;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; 
+    text-align: left;
+    text-align: left;
+    padding-left: 5px;
 }
 
-.highlight {
+h1, h2, p,  {
+    text-align: center;
+}
+
+/* .highlight {
   background-color: black;
   border-radius: 5px; 
   padding: 10px;
   border-radius: 5px; 
   
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px; 
+ 
   color: white;
-  max-width: fit-content;
+  
   
     
-} 
+}  */
 
-code {
-    text-align: left;
-}
+
 
