@@ -28,18 +28,18 @@
     <div class="code-example">
       <pre class="highlight">
         <code>
-            <p>
-                < form id="myForm">
-                < label for="nameInput">Name:< /label>
-                < input type="text" id="nameInput" name="name" required>
-                < span id="nameError" class="error">< /span>
-              
-                // altri campi di input //
-              
-                < button type="submit">Submit< /button>
-              </ form >
-            </p>
+            <xmp> 
             
+                <form id="myForm">
+                    <label for="nameInput">Name:< /label>
+                    <input type="text" id="nameInput" name="name" required>
+                    <span id="nameError" class="error">< /span>
+                
+                    // altri campi di input //
+                
+                    <button type="submit">Submit< /button>
+                </form >
+            </xmp>
         </code>
       </pre>
     </div>
@@ -53,22 +53,20 @@
             Qui un esempio di come utilizzare pattern per validare un campo password con almeno 8 caratteri:
         </p>
         <div class="code-example">
-            <pre class="highlight">
-                
-                    <code>
-                        <   form>
-                            < label for="password">Password (almeno 8 caratteri):</ label>
-                            < input type="password" id="password" name="password" pattern=".{8,}" title="La password deve contenere almeno 8 caratteri">
+            <pre class="highlight">    
+                <code>
+                    <xmp>
+                        <form>
+                            <label for="password">Password (almeno 8 caratteri):</label>
+                            <input type="password" id="password" name="password" pattern=".{8,}" title="La password deve contenere almeno 8 caratteri">
+                            
+                            <input type="submit" value="Submit">
+                        </form>
+                    </xmp>
                         
-                            < input type="submit" value="Submit">
-                    < /form>
-                        
-                        
-                    </code>
+                </code>
             </pre>
        </div>
-
-  
     </div>
   </div>
   <div class="tutorial-section">
@@ -81,7 +79,7 @@
     <div class="code-example">
             <pre class="highlight">
             
-                <code>
+                <code class="language-css">
                     input:valid {
                         border: 2px solid green; /* Bordo verde per i campi validi */
                     }
@@ -97,31 +95,7 @@
     </div>
    
   </div>
-  <div class="tutorial-section">
-        <p> pattern=".{8,}" specifica che il campo password deve contenere almeno 8 caratteri.
-
-            title="La password deve contenere almeno 8 caratteri" fornisce un messaggio di suggerimento quando l'utente passa il mouse sopra il campo.
-        </p>
-
-        <p>In CSS, puoi anche applicare stili ai campi di input in base al loro stato di validità utilizzando il selettore :valid e :invalid. Ad esempio:</p>
-        <div class="code-example">
-            <pre class="highlight">
-            
-                <code>
-                    input:valid {
-                        border: 2px solid green; /* Bordo verde per i campi validi */
-                    }
-                    
-                    input:invalid {
-                        border: 2px solid red; /* Bordo rosso per i campi non validi */
-                    }
-                    
-                    
-                    
-                </code>
-            </pre>   
-        </div>  
-  </div>
+  
   <div class="tutorial-section">
         <h2>maxlength e minlength </h2>
         <p>Questi attributi definiscono la lunghezza massima e minima di un campo di testo.
@@ -130,18 +104,16 @@
             <pre class="highlight">
                 
                     <code>
-
-
+                        
                         < input type="text" name="description" maxlength="100" minlength="10">
-
-                        
+                       
                         
                     </code>
             </pre>
         </div>
-
-
     </div>
+
+    
     <div class="tutorial-section">
         <h2>type="email" e type="url":</h2>
         <p>Questi attributi specificano il tipo di input previsto (indirizzo email o URL) e forniscono una validazione di base.
@@ -150,45 +122,17 @@
             <pre class="highlight">
                 
                     <code>
-
-                        
-                        < input type="email" name="userEmail">
-                        < input type="url" name="website">
-                        
-
-                        
-                        
+                        <xmp>
+                            <input type="email" name="userEmail">
+                            <input type="url" name="website">
+                        </xmp>
                     </code>
             </pre>
         </div>
-
-
-    </div>
-    <div class="tutorial-section">
-        <h2>type="email" e type="url":</h2>
-        <p>Questi attributi specificano il tipo di input previsto (indirizzo email o URL) e forniscono una validazione di base.
-        </p>
-        <div class="code-example">
-            <pre class="highlight">
-                
-                    <code>
-
-                        
-                        < input type="email" name="userEmail">
-                        < input type="url" name="website">
-                        
-
-                        
-                        
-                    </code>
-            </pre>
-        </div>
-
-
     </div>
     <div class="tutorial-section">
         <h2>step::</h2>
-        <p>L'attributo step definisce gli intervalli validi per i valori di input numerici.e di base.
+        <p>L'attributo step definisce gli intervalli validi per i valori di input numerici e di base.
         </p>
         <div class="code-example">
             <pre class="highlight">
@@ -197,10 +141,6 @@
 
                         
                         < input type="number" name="quantity" step="5">
-
-                        
-
-                        
                         
                     </code>
             </pre>
@@ -228,8 +168,6 @@
                     </code>
             </pre>
         </div>
-
-
     </div>
     <div class="tutorial-section">
         <h2>autocomplete:</h2>
@@ -239,13 +177,8 @@
             <pre class="highlight">
                 
                     <code>
-
                         
                         < input type="text" name="address" autocomplete="on">
-
-                        
-
-                        
                         
                     </code>
             </pre>
@@ -255,21 +188,28 @@
     </div>
     <div class="tutorial-section">
         <h2>Convalida dei moduli utilizzando JavaScript</h2>
-        <p>È necessario utilizzare JavaScript per assumere il controllo sull'aspetto dei messaggi di errore nativi come ad esempio "validity".
+        <h4>di Giacomo Franchi</h4>
+        <p>
+            È necessario utilizzare JavaScript per assumere il controllo sull'aspetto dei messaggi di errore nativi come ad esempio "validity".
         </p>
         <p>
             validity: Restituisce un ValidityState oggetto che contiene diverse proprietà che descrivono lo stato di validità dell'elemento.
+
             <li>
-                valid: Restituisce true se l'elemento soddisfa tutti i suoi vincoli di validazione, ed è quindi considerato valido, o false se fallisce qualsiasi vincolo
+                valid: 
+                Restituisce true se l'elemento soddisfa tutti i suoi vincoli di validazione, ed è quindi considerato valido, o false se fallisce qualsiasi vincolo
             </li>
             <li>
-                tooLong: Restituisce truese il valore è più lungo della lunghezza massima specificata dall'attributo maxlengtho falsese è più corto o uguale al massimo.// tooShort:
+                tooLong: 
+                Restituisce truese il valore è più lungo della lunghezza massima specificata dall'attributo maxlengtho falsese è più corto o uguale al massimo.// tooShort:
             </li>
             <li>
-                rangeOverflow: // rangeUnderflow: Restituisce truese il valore è inferiore al minimo specificato dall'attributo mino falsese è maggiore o uguale al minimo.
+                rangeOverflow: // rangeUnderflow:
+                 Restituisce true se il valore è inferiore al minimo specificato dall'attributo mino falsese è maggiore o uguale al minimo.
             </li>
             <li>
-                typeMismatch: Restituisce truese il valore non è nella sintassi richiesta (quando type è email o url) o false se la sintassi è corretta.
+                typeMismatch: 
+                Restituisce truese il valore non è nella sintassi richiesta (quando type è email o url) o false se la sintassi è corretta.
 
             </li>
         </p>
@@ -277,8 +217,6 @@
             <pre class="highlight">
                 
                     <code>
-
-                        
                         esempio:
                         HTML
                         < form novalidate> "novalidate" per disattivare la convalida automatica del browser, non disabilita  pseudo-classi CSS come :valid.
@@ -339,14 +277,14 @@
              </pre>
 
         </div>
-
-
     </div>
   
-
   <div class="tutorial-section">
         <h2>Validation con Javascript: Validazione basata su condizioni:</h2>
-        <p>Si possono utilizzare istruzioni condizionali per verificare se i campi del form soddisfano determinate condizioni. Ad esempio, si può controllare se un campo è vuoto o se un numero è maggiore di una certa quantità.</p>
+        <p>
+            Si possono utilizzare istruzioni condizionali per verificare se i campi del form soddisfano determinate condizioni. Ad esempio, si può controllare se un campo è vuoto o se un numero è maggiore di una certa quantità.
+
+        </p>
 
         <div class="code-example">
             <pre class="highlight">
@@ -370,7 +308,7 @@
 
   <div class="tutorial-section">
     <h2>Espressioni regolari (Regex):</h2>
-    <p>Si possono utilizzare espressioni regolari per definire modelli specifici che devono essere rispettati. Ad esempio, per la validazione di un'email:</p>
+    <p>Si possono utilizzare espressioni regolari per definire modelli specifici che devono essere rispettati. Ad esempio, per la validazione di un'email, di un numero di telefono o di un indirizzo:</p>
 
     <div class="code-example">
       <pre>
@@ -386,45 +324,23 @@
                 alert('Inserisci un indirizzo email valido');
                 valido = false;
             }
-            //OPPURE
-            
             
         </code>
       </pre>
     </div>
-  </div>
-
-  <div class="tutorial-section">
-        <h2>Constraint API:</h2>
-        <p>Si possono utilizzare la Constraint API, che fornisce un set di metodi e proprietà per accedere e modificare i vincoli di validazione di un elemento. Ad esempio:</p>
-
-        <div class="code-example">
+    <p>Oppure:</p>
+    <div class="code-example">
         <pre>
             <code>
-                const ageInput = document.getElementById('age');
+                const regexTelefono = /^\+(?:[0-9]●?){6,14}[0-9]$/;
 
-                ageInput.addEventListener('input', function() {
-                    if (ageInput.validity.rangeUnderflow) {
-                        alert('L\'età deve essere maggiore di 18');
-                        valido = false;
-                    }
-                });
+                const regexCodicePostaleUSA = /^\d{5}(?:[-\s]\d{4})?$/;
+
+                const regexData = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 
             </code>
         </pre>
-        </div>
-        <div class="code-example">
-                <pre>
-                    <code>
-                        const regexTelefono = /^\+(?:[0-9]●?){6,14}[0-9]$/;
-
-                        const regexCodicePostaleUSA = /^\d{5}(?:[-\s]\d{4})?$/;
-
-                        const regexData = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-
-                    </code>
-                </pre>
-        </div>
+    </div>
         <div class="code-example">
             <pre>
                 <code>
@@ -473,11 +389,43 @@
                     });
 
 
-        
+
                 </code>
             </pre>
-    </div>
+        </div>
+        
   </div>
+
+  <div class="tutorial-section">
+        <h2>Constraint API:</h2>
+        <p>
+            Si possono utilizzare la Constraint API, che fornisce un set di metodi e proprietà per accedere e modificare i vincoli di validazione di un elemento. Ad esempio:
+        </p>
+
+        <div class="code-example">
+            <pre>
+                <code>
+                    const ageInput = document.getElementById('age');
+                    const ageError = document.getElementById('ageError');
+
+                    ageInput.addEventListener('input', function() {
+                        if (ageInput.validity.rangeUnderflow) {
+                        ageError.textContent = 'L\'età deve essere maggiore di  18';
+                        } else {
+                            ageError.textContent = '';
+                        }
+                    });
+
+                </code>
+            </pre>
+        </div>
+        <p>
+            In questo esempio, la Constraint API è utilizzata per controllare se l'età è maggiore di 18.
+
+            Questi sono solo esempi di base. La validazione del modulo può essere personalizzata ulteriormente in base alle esigenze specifiche del progetto da realizzare. 
+        </p>
+    </div>
+       
 
   <div class="tutorial-section">
     <h2>Utilizzo di checkValidity</h2>
@@ -511,35 +459,24 @@
     </p>
 
   <div class="tutorial-section">
-    <h2>Utilizzo di Constraint API</h2>
-    <p>La Constraint API è un insieme di API JavaScript per l'accesso e la modifica dei vincoli di validazione di un elemento.</p>
-
-    <div class="code-example">
-      <pre>
-        <code>
-            const ageInput = document.getElementById('age');
-            const ageError = document.getElementById('ageError');
-
-            ageInput.addEventListener('input', function() {
-                if (ageInput.validity.rangeUnderflow) {
-               ageError.textContent = 'L\'età deve essere maggiore di 18';
-                } else {
-                ageError.textContent = '';
-                }
-             });
-            
-        </code>
-      </pre>
-    </div>
-  </div>
-    <p>In questo esempio, la Constraint API è utilizzata per controllare se l'età è maggiore di 18.
-
-        Questi sono solo esempi di base. La validazione del modulo può essere personalizzata ulteriormente in base alle esigenze specifiche del progetto da realizzare. </p>
-
-  <div class="tutorial-section">
     <h2>Visualizzazione dei Messaggi di Errore</h2>
     <p>
-        a visualizzazione dei messaggi di errore è una componente cruciale nella validazione dei form con JavaScript. Questo processo fornisce feedback istantaneo agli utenti riguardo agli errori nei dati inseriti, migliorando così l'esperienza complessiva. Nel codice JavaScript associato a ciascun campo del form, vengono implementate condizioni che attivano la visualizzazione di messaggi di errore specifici quando si verificano determinati scenari, come campi obbligatori vuoti. Questa pratica non solo aiuta gli utenti a correggere gli errori immediatamente, ma contribuisce anche a mantenere l'integrità e l'accuratezza dei dati nel sistema. La personalizzazione dei messaggi di errore e l'integrazione con altri metodi di validazione consentono di adattare la visualizzazione degli errori alle esigenze specifiche del progetto.
+        La visualizzazione dei messaggi di errore è una componente cruciale nella validazione dei form con JavaScript.
+    </p>
+    <p>
+        Questo processo fornisce feedback istantaneo agli utenti riguardo agli errori nei dati inseriti, migliorando così l'esperienza complessiva.
+    </p>
+    <p>
+        Nel codice JavaScript associato a ciascun campo del form, vengono implementate condizioni che attivano la visualizzazione di messaggi di errore specifici quando si verificano determinati scenari, come campi obbligatori vuoti.
+
+    </p>
+    <p>
+        Questa pratica non solo aiuta gli utenti a correggere gli errori immediatamente, ma contribuisce anche a mantenere l'integrità e l'accuratezza dei dati nel sistema.
+
+    </p>
+    <p>
+        La personalizzazione dei messaggi di errore e l'integrazione con altri metodi di validazione consentono di adattare la visualizzazione degli errori alle esigenze specifiche del progetto.
+
     </p>
 
     <div class="code-example">
@@ -563,9 +500,187 @@
       </pre>
     </div>
   </div>
-
-
   
+    <div class="tutorial-section">
+        <h2>L'importanza di una buona pratica di validazione dei form: il Cross Site Scripting (XSS)</h2>
+        <p>
+            Il cross site scripting è una falla nella sicurezza che avviene quando vengono iniettati script maligni in un'appplicazione web, poi eseguiti dal browser di user inconsapevoli
+        </p>
+        <p>
+            il termine "cross-site" indica che l'attacco coinvolge script da un sito web eseguiti nel contesto di un altro sito web.
+        </p>
+        <p>
+            Ci sono tre principali tipi di XSS:
+            <ol> 
+                <li>
+                    <h3>Stored (persistent) XSS: </h3>
+                    script maligni che sono memorizzati sul server di destinazione, spesso in un database. Quando un utente richiede la pagina interessata, lo script viene servito insieme al contenuto legittimo ed il browser dell'utente lo esegue.
+                </li>
+                <li>
+                    <h3>Reflected (Non-Persistent) XSS:</h3>
+                    lo script maligno è incorporato in un URL ed il server lo riflette all'utente n ella risposta. Il browser dell'utete esegue quindi lo script: 
+                    <strong> Questo tipo è solutamente il risultato dell'inserimento di script in campi di input o url</strong>
+                </li>
+                <li>
+                    <h3>Dom-Based XXS:</h3>
+                    L'attacco avviene nel Document Object Model (DOM), dove lo script lato client manipola il DOM in base all'input dell'utente. Se la manipolazione comporta l'esecuzione di uno script maligno, diventa un attacco XSS basato su DOM.
+                </li>
+            </ol>
+        </p>
+        <h2> Come Funziona l'XSS:</h2>
+        <p>
+            <ol>
+                <li>
+                    <h3>Iniezione:</h3>
+                    Un hacker inietta codice maligno (solitamente JavaScript) in campi di input, URL o altre aree controllate dall'utente.
+                </li>
+                <li>
+                    <h3>Esecuzione</h3>
+                    Il codice iniettato viene quindi servito ad altri utenti o eseguito quando la vittima accede a una pagina specifica o interagisce con un componente vulnerabile.
+                </li>
+                <li>
+                    <h3> Impatto: </h3>
+                    Lo script maligno può rubare dati dell'utente, cookie di sessione, credenziali di accesso o compiere azioni a nome dell'utente senza il loro consenso.
+                </li>
+            </ol>
 
+        </p>
+        <h2>Prevenzione dell'XSS:</h2>
+        <p>
+            <ol>
+                <li>
+                    <h3>Validazione dell'Input:</h3>
+                    Convalidare e sanificare l'input dell'utente sia lato client che lato server.
+                </li>
+                <li>
+                    <h3>Codifica dell'Output:</h3>
+                    Codificare l'input dell'utente prima di renderizzarlo sulla pagina web per neutralizzare eventuali codici maligni potenziali.
+                </li>
+                <li>
+                    <h3>Content Security Policy (CSP):</h3>
+                    Implementare una CSP robusta per controllare quali script possono essere eseguiti su una pagina.
+                </li>
+                <li>
+                    <h3>Cookies HttpOnly:</h3>
+                    Utilizzare cookie HttpOnly per impedire che siano accessibili da script lato client.
+                </li>
+                <li>
+                    <h3>Auditing Regolare della Sicurezza:</h3>
+
+                    Effettuare regolarmente audit e scansioni dell'applicazione per individuare vulnerabilità, inclusa l'XSS.
+                    Comprendere e mitigare l'XSS è cruciale per <strong> mantenere la sicurezza</strong> delle applicazioni web  <strong>  proteggere gli utenti</strong>da potenziali attacchi maligni.
+                </li>
+            </ol>
+            
+
+        </p>
+        <h2>Esempio di injection XSS su una form:</h2>
+        <div class="code-example">
+            <pre class="highlight">
+                <div class="code-example">
+                    <pre class="highlight">
+                        <code>
+                            &lt;!-- Form HTML Vulnerabile --&gt;
+                            &lt;form action="/submit-comment" method="post"&gt;
+                                &lt;label for="comment"&gt;Lascia un commento:&lt;/label&gt;
+                                &lt;textarea id="comment" name="comment"&gt;&lt;/textarea&gt;
+                                &lt;button type="submit"&gt;Invia&lt;/button&gt;
+                            &lt;/form&gt;
+                
+                            &lt;!-- Visualizzazione dei commenti senza una valida validazione --&gt;
+                            &lt;div id="comments"&gt;
+                                &lt;!-- Visualizzazione dei commenti degli utenti senza una valida validazione --&gt;
+                            &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+                
+            </pre>
+        </div>
+        <h2>Javascript lato server </h2>
+        <div class="code-example">
+            <pre class="highlight">
+                <div class="code-example">
+                    <pre class="highlight">
+                        <code>
+                            // Esempio con Node.js ed Express
+                                const express = require('express');
+                                const bodyParser = require('body-parser');
+                                const app = express();
+
+                                app.use(bodyParser.urlencoded({ extended: true }));
+
+                                // Gestione della sottomissione del form
+                                app.post('/submit-comment', (req, res) => {
+                                    const userComment = req.body.comment;
+
+                                    // Memorizza il commento nel database (esempio semplificato)
+                                    // In uno scenario del mondo reale, qui si effettuerebbe una valida validazione e sanitizzazione.
+
+                                    // Per illustrazione, assumiamo che il commento sia memorizzato in una variabile.
+                                    const storedComment = userComment;
+
+                                    // Invia una risposta (in uno scenario reale, potresti reindirizzare o renderizzare una nuova pagina)
+                                    res.send('Commento inviato con successo!');
+                                });
+
+                                // Servizio della pagina del form
+                                app.get('/', (req, res) => {
+                                    // In uno scenario del mondo reale, avresti un valido motore di template HTML
+                                    res.sendFile(__dirname + '/form.html');
+                                });
+
+                                app.listen(3000, () => {
+                                    console.log('Il server è in esecuzione sulla porta 3000');
+                                });
+
+                        </code>
+                    </pre>
+                </div>
+                
+            </pre>
+        </div>
+        <p>
+            Nel contesto specifico di questo codice, il rischio deriva dall'invio del commento dell'utente direttamente nella risposta senza alcuna validazione o sanitizzazione. Se un utente malintenzionato inserisse un commento contenente codice JavaScript dannoso, questo sarebbe eseguito quando la risposta viene visualizzata nel browser di altri utenti.
+        </p>
+        <p>
+            Ora, un hacker potrebbe inviare il seguente payload nel campo del commento:
+        </p>
+        <div class="code-example">
+            <pre>
+                <code>
+                    &lt;script&gt;
+                        alert("Attacco XSS!");
+                    &lt;/script&gt;
+                </code>
+            </pre>
+        </div>
+        
+        <p>
+            Se questo payload viene inviato e l'applicazione non effettua una valida validazione e sanificazione dell'input, lo script iniettato verrà memorizzato nel database e quindi visualizzato sulla pagina web quando i commenti vengono recuperati e renderizzati.
+        </p>
+        <p>
+            In uno scenario del mondo reale, gli hacker potrebbero utilizzare payload più sofisticati per rubare i cookie di sessione, reindirizzare gli utenti a siti web maligni o eseguire altre attività dannose. Una corretta validazione dell'input, la codifica dell'output e la sanificazione sono cruciali per prevenire vulnerabilità XSS.
+        </p>
+    </div>
+    <div class="tutorial-section">
+        <h2>Conclusioni:</h2>
+        <p>
+            Oggi abbiamo esplorato la potenza di HTML5 e JavaScript nella validazione dei form. Sfruttando attributi HTML5 come required e pattern, garantiamo un feedback immediato all'utente. JavaScript, con la sua Constraint API, ci consente di prendere il controllo del processo di validazione, offrendo un'esperienza più dinamica e personalizzata.
+
+        </p>
+        <p>
+            Abbiamo visto come la gestione degli errori, esemplificata da messaggi chiari legati a campi specifici del form, non solo guidi gli utenti ma migliora anche l'usabilità complessiva. Inoltre, i nostri sforzi di validazione contribuiscono alla sicurezza dell'applicazione, prevenendo vulnerabilità comuni come gli attacchi di cross-site scripting (XSS).
+        </p>
+        <p>
+            In conclusione, una strategia robusta di validazione dei form va oltre il soddisfacimento dei requisiti tecnici; è un elemento chiave nel plasmare un'esperienza utente positiva, garantendo l'integrità dei dati e rafforzando la sicurezza delle nostre applicazioni web. 
+
+            Grazie per il vostro tempo!
+        </p>
+
+    </div>
+    <footer>
+        <p>Make with ❤ by Team 8</p>
+    </footer>
 </body>
 </html>
